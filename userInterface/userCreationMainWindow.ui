@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>520</width>
-    <height>581</height>
+    <width>547</width>
+    <height>553</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,6 +47,16 @@
      <item row="1" column="1">
       <widget class="QLineEdit" name="lineEdit_2"/>
      </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Display Name</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="lineEdit_5"/>
+     </item>
      <item row="3" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
@@ -67,48 +77,10 @@
      <item row="4" column="1">
       <widget class="QLineEdit" name="lineEdit_4"/>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Display Name</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEdit_5"/>
-     </item>
      <item row="5" column="0">
       <widget class="QLabel" name="label_6">
        <property name="text">
         <string>Office</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_7">
-       <property name="text">
-        <string>Department</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="0">
-      <widget class="QLabel" name="label_8">
-       <property name="text">
-        <string>Role</string>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="0">
-      <widget class="QLabel" name="label_9">
-       <property name="text">
-        <string>Manager</string>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="0">
-      <widget class="QLabel" name="label_10">
-       <property name="text">
-        <string>Employee Number</string>
        </property>
       </widget>
      </item>
@@ -125,20 +97,45 @@
        </property>
       </widget>
      </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Department</string>
+       </property>
+      </widget>
+     </item>
      <item row="6" column="1">
       <widget class="QComboBox" name="comboBox_2"/>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>Role</string>
+       </property>
+      </widget>
      </item>
      <item row="7" column="1">
       <widget class="QComboBox" name="comboBox_3"/>
      </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>Manager</string>
+       </property>
+      </widget>
+     </item>
      <item row="8" column="1">
       <widget class="QLineEdit" name="lineEdit_6"/>
      </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Employee Number</string>
+       </property>
+      </widget>
+     </item>
      <item row="9" column="1">
       <widget class="QLineEdit" name="lineEdit_7"/>
-     </item>
-     <item row="10" column="1">
-      <widget class="QComboBox" name="comboBox_4"/>
      </item>
      <item row="10" column="0">
       <widget class="QLabel" name="label_11">
@@ -146,6 +143,9 @@
         <string>Organisational Unit</string>
        </property>
       </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QComboBox" name="comboBox_4"/>
      </item>
     </layout>
    </widget>
@@ -187,8 +187,8 @@
    <widget class="QToolButton" name="toolButton">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>450</y>
+      <x>30</x>
+      <y>460</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -204,8 +204,8 @@ Command</string>
    <widget class="QToolButton" name="toolButton_2">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>450</y>
+      <x>30</x>
+      <y>410</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -217,13 +217,29 @@ Command</string>
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QLineEdit" name="lineEdit_8">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>470</y>
+      <width>181</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>520</width>
+     <width>547</width>
      <height>20</height>
     </rect>
    </property>
