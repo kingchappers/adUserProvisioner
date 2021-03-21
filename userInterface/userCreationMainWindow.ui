@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>564</width>
-    <height>648</height>
+    <width>520</width>
+    <height>581</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
       <x>30</x>
       <y>30</y>
       <width>281</width>
-      <height>301</height>
+      <height>315</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -137,13 +137,23 @@
      <item row="9" column="1">
       <widget class="QLineEdit" name="lineEdit_7"/>
      </item>
+     <item row="10" column="1">
+      <widget class="QComboBox" name="comboBox_4"/>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Organisational Unit</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>380</y>
+      <y>350</y>
       <width>281</width>
       <height>51</height>
      </rect>
@@ -174,13 +184,46 @@
      </item>
     </layout>
    </widget>
+   <widget class="QToolButton" name="toolButton">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>450</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Powershell
+Command</string>
+    </property>
+    <property name="autoRaise">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton_2">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>450</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Create User</string>
+    </property>
+    <property name="autoRaise">
+     <bool>false</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>564</width>
+     <width>520</width>
      <height>20</height>
     </rect>
    </property>
