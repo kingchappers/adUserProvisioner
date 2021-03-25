@@ -183,6 +183,9 @@ class Ui_MainWindow(object):
         self.actionExit.setToolTip(_translate("MainWindow", "Exit Program"))
 
 
+        
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
