@@ -28,64 +28,64 @@
     </property>
     <layout class="QFormLayout" name="formLayout">
      <item row="0" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="firstNameLabel">
        <property name="text">
         <string>First Name</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QLineEdit" name="firstNameLineEdit"/>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="surnameLabel">
        <property name="text">
         <string>Surname</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEdit_2"/>
+      <widget class="QLineEdit" name="surnameLineEdit"/>
      </item>
      <item row="2" column="0">
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="displayNameLabel">
        <property name="text">
         <string>Display Name</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEdit_5"/>
+      <widget class="QLineEdit" name="displayNamelineEdit"/>
      </item>
      <item row="3" column="0">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="logonNameLabel">
        <property name="text">
         <string>User Logon Name</string>
        </property>
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="lineEdit_3"/>
+      <widget class="QLineEdit" name="logonNameLineEdit"/>
      </item>
      <item row="4" column="0">
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="principalNameLabel">
        <property name="text">
         <string>User Principal Name</string>
        </property>
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QLineEdit" name="lineEdit_4"/>
+      <widget class="QLineEdit" name="principalNameLineEdit"/>
      </item>
      <item row="5" column="0">
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="officeLabel">
        <property name="text">
         <string>Office</string>
        </property>
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="officeComboBox">
        <property name="currentText">
         <string/>
        </property>
@@ -98,54 +98,54 @@
       </widget>
      </item>
      <item row="6" column="0">
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="departmentLabel">
        <property name="text">
         <string>Department</string>
        </property>
       </widget>
      </item>
      <item row="6" column="1">
-      <widget class="QComboBox" name="comboBox_2"/>
+      <widget class="QComboBox" name="departmentComboBox"/>
      </item>
      <item row="7" column="0">
-      <widget class="QLabel" name="label_8">
+      <widget class="QLabel" name="roleLabel">
        <property name="text">
         <string>Role</string>
        </property>
       </widget>
      </item>
      <item row="7" column="1">
-      <widget class="QComboBox" name="comboBox_3"/>
+      <widget class="QComboBox" name="roleComboBox"/>
      </item>
      <item row="8" column="0">
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="managerLabel">
        <property name="text">
         <string>Manager</string>
        </property>
       </widget>
      </item>
      <item row="8" column="1">
-      <widget class="QLineEdit" name="lineEdit_6"/>
+      <widget class="QLineEdit" name="managerLineEdit"/>
      </item>
      <item row="9" column="0">
-      <widget class="QLabel" name="label_10">
+      <widget class="QLabel" name="employeeNumberlabel">
        <property name="text">
         <string>Employee Number</string>
        </property>
       </widget>
      </item>
      <item row="9" column="1">
-      <widget class="QLineEdit" name="lineEdit_7"/>
+      <widget class="QLineEdit" name="employeeNumberLineEdit"/>
      </item>
      <item row="10" column="0">
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="organisationalUnitLabel">
        <property name="text">
         <string>Organisational Unit</string>
        </property>
       </widget>
      </item>
      <item row="10" column="1">
-      <widget class="QComboBox" name="comboBox_4"/>
+      <widget class="QComboBox" name="organisationalUnitComboBox"/>
      </item>
     </layout>
    </widget>
@@ -160,7 +160,7 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QCheckBox" name="checkBox">
+      <widget class="QCheckBox" name="changePasswordCheckBox">
        <property name="text">
         <string>Change Password at Next Logon</string>
        </property>
@@ -170,7 +170,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox_2">
+      <widget class="QCheckBox" name="passwordExpiresCheckBox">
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
@@ -184,7 +184,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QToolButton" name="toolButton">
+   <widget class="QToolButton" name="powershellCommandToolButton">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -201,7 +201,7 @@ Command</string>
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_2">
+   <widget class="QToolButton" name="createUserToolButton">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -217,7 +217,7 @@ Command</string>
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_8">
+   <widget class="QLineEdit" name="powershellCommandlineEdit">
     <property name="enabled">
      <bool>true</bool>
     </property>
