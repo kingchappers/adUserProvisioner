@@ -1,4 +1,4 @@
-class pyMdl:
+class adProvisionerMdl:
     def commandBuilder(self):
         x=1
 
