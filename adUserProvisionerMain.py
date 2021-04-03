@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QApplication
 
 from userInterface.userCreationMainWindow import Ui_MainWindow
 from adUserProvisionerController import adUserCreationCtrl
+from adUserProvisioner.userInterface.userCreationUI import Ui_userCreationWindow
 
 def main():
     #Main function.
