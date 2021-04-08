@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'userCreationUI.ui'
@@ -11,12 +13,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_userCreationWindow(object):
-    def setupUi(self, userCreationWindow):
-        userCreationWindow.setObjectName("userCreationWindow")
-        userCreationWindow.resize(547, 553)
-        userCreationWindow.setToolTipDuration(-7)
-        self.centralwidget = QtWidgets.QWidget(userCreationWindow)
+class Ui_userCreationUIWindow(object):
+    def setupUi(self, userCreationUIWindow):
+        userCreationUIWindow.setObjectName("userCreationUIWindow")
+        userCreationUIWindow.resize(547, 553)
+        userCreationUIWindow.setToolTipDuration(-7)
+        self.centralwidget = QtWidgets.QWidget(userCreationUIWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.formLayoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.formLayoutWidget.setGeometry(QtCore.QRect(30, 30, 281, 321))
@@ -135,48 +137,48 @@ class Ui_userCreationWindow(object):
         self.availableEmployeeNumberLabel = QtWidgets.QLabel(self.centralwidget)
         self.availableEmployeeNumberLabel.setGeometry(QtCore.QRect(310, 290, 57, 15))
         self.availableEmployeeNumberLabel.setObjectName("availableEmployeeNumberLabel")
-        userCreationWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(userCreationWindow)
+        userCreationUIWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(userCreationUIWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 547, 20))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
-        userCreationWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(userCreationWindow)
+        userCreationUIWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(userCreationUIWindow)
         self.statusbar.setObjectName("statusbar")
-        userCreationWindow.setStatusBar(self.statusbar)
-        self.actionExit = QtWidgets.QAction(userCreationWindow)
+        userCreationUIWindow.setStatusBar(self.statusbar)
+        self.actionExit = QtWidgets.QAction(userCreationUIWindow)
         self.actionExit.setEnabled(True)
         self.actionExit.setObjectName("actionExit")
         self.menuFile.addAction(self.actionExit)
         self.menubar.addAction(self.menuFile.menuAction())
 
-        self.retranslateUi(userCreationWindow)
-        QtCore.QMetaObject.connectSlotsByName(userCreationWindow)
+        self.retranslateUi(userCreationUIWindow)
+        QtCore.QMetaObject.connectSlotsByName(userCreationUIWindow)
 
-    def retranslateUi(self, userCreationWindow):
+    def retranslateUi(self, userCreationUIWindow):
         _translate = QtCore.QCoreApplication.translate
-        userCreationWindow.setWindowTitle(_translate("userCreationWindow", "MainWindow"))
-        self.firstNameLabel.setText(_translate("userCreationWindow", "First Name"))
-        self.surnameLabel.setText(_translate("userCreationWindow", "Surname"))
-        self.displayNameLabel.setText(_translate("userCreationWindow", "Display Name"))
-        self.logonNameLabel.setText(_translate("userCreationWindow", "User Logon Name"))
-        self.principalNameLabel.setText(_translate("userCreationWindow", "User Principal Name"))
-        self.officeLabel.setText(_translate("userCreationWindow", "Office"))
-        self.departmentLabel.setText(_translate("userCreationWindow", "Department"))
-        self.roleLabel.setText(_translate("userCreationWindow", "Role"))
-        self.managerLabel.setText(_translate("userCreationWindow", "Manager"))
-        self.employeeNumberLabel.setText(_translate("userCreationWindow", "Employee Number"))
-        self.organisationalUnitLabel.setText(_translate("userCreationWindow", "Organisational Unit"))
-        self.changePasswordCheckBox.setText(_translate("userCreationWindow", "Change Password at Next Logon"))
-        self.passwordExpiresCheckBox.setText(_translate("userCreationWindow", "Password Never Expires"))
-        self.powershellCommandToolButton.setText(_translate("userCreationWindow", "Powershell\n"
+        userCreationUIWindow.setWindowTitle(_translate("userCreationUIWindow", "MainWindow"))
+        self.firstNameLabel.setText(_translate("userCreationUIWindow", "First Name"))
+        self.surnameLabel.setText(_translate("userCreationUIWindow", "Surname"))
+        self.displayNameLabel.setText(_translate("userCreationUIWindow", "Display Name"))
+        self.logonNameLabel.setText(_translate("userCreationUIWindow", "User Logon Name"))
+        self.principalNameLabel.setText(_translate("userCreationUIWindow", "User Principal Name"))
+        self.officeLabel.setText(_translate("userCreationUIWindow", "Office"))
+        self.departmentLabel.setText(_translate("userCreationUIWindow", "Department"))
+        self.roleLabel.setText(_translate("userCreationUIWindow", "Role"))
+        self.managerLabel.setText(_translate("userCreationUIWindow", "Manager"))
+        self.employeeNumberLabel.setText(_translate("userCreationUIWindow", "Employee Number"))
+        self.organisationalUnitLabel.setText(_translate("userCreationUIWindow", "Organisational Unit"))
+        self.changePasswordCheckBox.setText(_translate("userCreationUIWindow", "Change Password at Next Logon"))
+        self.passwordExpiresCheckBox.setText(_translate("userCreationUIWindow", "Password Never Expires"))
+        self.powershellCommandToolButton.setText(_translate("userCreationUIWindow", "Powershell\n"
 "Command"))
-        self.createUserToolButton.setText(_translate("userCreationWindow", "Create User"))
-        self.availableDisplayNameLabel.setText(_translate("userCreationWindow", "TextLabel"))
-        self.availableLogonLabel.setText(_translate("userCreationWindow", "TextLabel"))
-        self.availablePrincipalNameLabel.setText(_translate("userCreationWindow", "TextLabel"))
-        self.availableEmployeeNumberLabel.setText(_translate("userCreationWindow", "TextLabel"))
-        self.menuFile.setTitle(_translate("userCreationWindow", "&File"))
-        self.actionExit.setText(_translate("userCreationWindow", "Exit"))
-        self.actionExit.setToolTip(_translate("userCreationWindow", "Exit Program"))
+        self.createUserToolButton.setText(_translate("userCreationUIWindow", "Create User"))
+        self.availableDisplayNameLabel.setText(_translate("userCreationUIWindow", "TextLabel"))
+        self.availableLogonLabel.setText(_translate("userCreationUIWindow", "TextLabel"))
+        self.availablePrincipalNameLabel.setText(_translate("userCreationUIWindow", "TextLabel"))
+        self.availableEmployeeNumberLabel.setText(_translate("userCreationUIWindow", "TextLabel"))
+        self.menuFile.setTitle(_translate("userCreationUIWindow", "&File"))
+        self.actionExit.setText(_translate("userCreationUIWindow", "Exit"))
+        self.actionExit.setToolTip(_translate("userCreationUIWindow", "Exit Program"))
