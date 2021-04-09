@@ -12,7 +12,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_userCreationUIWindow(object):
     def setupUi(self, userCreationUIWindow):
         userCreationUIWindow.setObjectName("userCreationUIWindow")
