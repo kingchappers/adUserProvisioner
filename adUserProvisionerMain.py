@@ -4,7 +4,7 @@ import sys
 from PyQt5.QtWidgets import QApplication
 
 from userInterface import userCreationUI
-from adUserProvisionerController import adUserCreationCtrl
+from adUserProvisionerCtrl import adUserCreationCtrl
 
 def main():
     #Main function.
