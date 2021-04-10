@@ -1,38 +1,31 @@
 #!/usr/bin/env python3
-
-from PyQt5 import QtWidgets
+"""adup ui module"""
 
 # Import QApplication and the required widgets from PyQt5.QtWidgets
 # This works even with pylint moaning
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QMainWindow, QWidget, QGridLayout, QLineEdit, QPushButton, QHBoxLayout
 
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QGridLayout
-from PyQt5.QtWidgets import QLineEdit
-from PyQt5.QtWidgets import QPushButton
-from PyQt5.QtWidgets import QVBoxLayout
 
-class adupUI(QMainWindow):
-    #PyCalc's View (GUI).
+class AdupUI(QMainWindow):
+    """adupUI's View (GUI)."""
     def __init__(self):
-        #View initializer.
+        #View initializer
         super().__init__()
         # Set some main window's properties
-        self.setWindowTitle('PyCalc')
-        self.setFixedSize(235, 235)
-        self.generalLayout = QVBoxLayout()
+        self.setWindowTitle('User Creator')
+        self.setFixedSize(300, 500)
+        self.general_layout = QHBoxLayout()
         # Set the central widget
-        self._centralWidget = QWidget(self)
-        self.setCentralWidget(self._centralWidget)
-        self._centralWidget.setLayout(self.generalLayout)
+        self._central_widget = QWidget(self)
+        self.setCentralWidget(self._central_widget)
+        self._central_widget.setLayout(self.general_layout)
         # Create the display and the buttons
-        self._createDisplay()
-        self._createButtons()
+        self._create_display()
+        self._create_buttons()
 
-    def _createDisplay(self):
-        #Create the display.
+    def _create_display(self):
+        #Create the display
         # Create the display widget
         self.display = QLineEdit()
         # Set some display's properties
@@ -40,12 +33,11 @@ class adupUI(QMainWindow):
         self.display.setAlignment(Qt.AlignRight)
         self.display.setReadOnly(True)
         # Add the display to the general layout
-        self.generalLayout.addWidget(self.display)
+        self.general_layout.addWidget(self.display)
 
-    def _createButtons(self):
-        #Create the buttons.
+    def _create_buttons(self):
         self.buttons = {}
-        buttonsLayout = QGridLayout()
+        buttons_layout = QGridLayout()
         # Button text | position on the QGridLayout
         buttons = {'7': (0, 0),
                    '8': (0, 1),
@@ -69,22 +61,22 @@ class adupUI(QMainWindow):
                    '=': (3, 4),
                   }
         # Create the buttons and add them to the grid layout
-        for btnText, pos in buttons.items():
-            self.buttons[btnText] = QPushButton(btnText)
-            self.buttons[btnText].setFixedSize(40, 40)
-            buttonsLayout.addWidget(self.buttons[btnText], pos[0], pos[1])
-        # Add buttonsLayout to the general layout
-        self.generalLayout.addLayout(buttonsLayout)
+        for btn_text, pos in buttons.items():
+            self.buttons[btn_text] = QPushButton(btn_text)
+            self.buttons[btn_text].setFixedSize(40, 40)
+            buttons_layout.addWidget(self.buttons[btn_text], pos[0], pos[1])
+        # Add buttons_layout to the general layout
+        self.general_layout.addLayout(buttons_layout)
 
-    def setDisplayText(self, text):
-        #Set display's text.
+    def set_displaytext(self, text):
+        """Set display's text."""
         self.display.setText(text)
         self.display.setFocus()
 
-    def displayText(self):
-        #Get display's text.
+    def display_text(self):
+        """Get display's text."""
         return self.display.text()
 
     def clearDisplay(self):
-        #Clear the display.
-        self.setDisplayText('')
+        """Clear the display."""
+        self.set_displaytext('')
