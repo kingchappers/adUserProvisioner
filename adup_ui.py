@@ -23,6 +23,7 @@ class AdupUI(QMainWindow):
         #Create the main form
         self._create_main_form()
         self._create_checkboxes()
+        self._create_buttons()
 
     def _create_main_form(self):
         #Create the main form
@@ -73,37 +74,21 @@ class AdupUI(QMainWindow):
         self.general_layout.addLayout(self.checkbox_layout)
 
     def _create_buttons(self):
-        self.buttons = {}
-        buttons_layout = QGridLayout()
-        #Button text | position on the QGridLayout
-        buttons = {'7': (0, 0),
-                   '8': (0, 1),
-                   '9': (0, 2),
-                   '/': (0, 3),
-                   'C': (0, 4),
-                   '4': (1, 0),
-                   '5': (1, 1),
-                   '6': (1, 2),
-                   '*': (1, 3),
-                   '(': (1, 4),
-                   '1': (2, 0),
-                   '2': (2, 1),
-                   '3': (2, 2),
-                   '-': (2, 3),
-                   ')': (2, 4),
-                   '0': (3, 0),
-                   '00': (3, 1),
-                   '.': (3, 2),
-                   '+': (3, 3),
-                   '=': (3, 4),
-                  }
-        # Create the buttons and add them to the grid layout
-        for btn_text, pos in buttons.items():
-            self.buttons[btn_text] = QPushButton(btn_text)
-            self.buttons[btn_text].setFixedSize(40, 40)
-            buttons_layout.addWidget(self.buttons[btn_text], pos[0], pos[1])
-        # Add buttons_layout to the general layout
-        self.general_layout.addLayout(buttons_layout)
+        self.buttons_layout = QFormLayout()
+        #Create the widgets
+        self.check_duplicate_btn = QPushButton("Check for duplicates")
+        self.check_duplicate_line_edit = QLineEdit()
+        self.check_duplicate_line_edit.setReadOnly(True)
+        self.create_powershell_btn = QPushButton("Create Powershell Command")
+        self.create_powershell_command_result_line_edit = QLineEdit()
+        self.create_powershell_command_result_line_edit.setReadOnly(True)
+        self.create_user_btn = QPushButton("Create User")
+        #Add buttons to form
+        self.buttons_layout.addRow(self.check_duplicate_btn, self.check_duplicate_line_edit)
+        self.buttons_layout.addRow(self.create_powershell_btn, self.create_powershell_command_result_line_edit)
+        self.buttons_layout.addRow(self.create_user_btn)
+        #Add to the main layout
+        self.general_layout.addLayout(self.buttons_layout)
 
     def set_displaytext(self, text):
         """Set display's text."""
