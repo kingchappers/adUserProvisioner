@@ -77,6 +77,6 @@ class AdupUI(QMainWindow):
         """Get display's text."""
         return self.display.text()
 
-    def clearDisplay(self):
+    def clear_display(self):
         """Clear the display."""
         self.set_displaytext('')
