@@ -2,7 +2,7 @@
 """adup ui module"""
 
 # Import widgets for PyQt5 (on 2 lines for ease of reading)
-from PyQt5.QtWidgets import QLineEdit, QPushButton, QLabel, QComboBox, QCheckBox
+from PyQt5.QtWidgets import QLineEdit, QPushButton, QLabel, QComboBox, QCheckBox, QWidget
 from PyQt5.QtWidgets import QVBoxLayout, QFormLayout, QMainWindow
 
 class AdupUI(QMainWindow):
