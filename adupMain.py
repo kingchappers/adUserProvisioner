@@ -3,8 +3,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication
 
-from userInterface import userCreationUI
-from adUserProvisionerCtrl import adUserCreationCtrl
+from adupCtrl import adUserCreationCtrl
 
 def main():
     #Main function.
