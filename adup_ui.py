@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 """adup ui module"""
 
-# Import QApplication and the required widgets from PyQt5.QtWidgets
-# This works even with pylint moaning
-from PyQt5.QtWidgets import QMainWindow, QWidget, QGridLayout, QLineEdit, QPushButton, QHBoxLayout, QFormLayout, QLabel, QComboBox, QCheckBox, QVBoxLayout
-
-from PyQt5.QtCore import Qt
+# Import widgets for PyQt5 (on 2 lines for ease of reading)
+from PyQt5.QtWidgets import QLineEdit, QPushButton, QLabel, QComboBox, QCheckBox
+from PyQt5.QtWidgets import QVBoxLayout, QFormLayout, QMainWindow
 
 class AdupUI(QMainWindow):
     """adupUI's View (GUI)."""
