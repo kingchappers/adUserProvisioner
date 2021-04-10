@@ -3,7 +3,7 @@
 
 # Import QApplication and the required widgets from PyQt5.QtWidgets
 # This works even with pylint moaning
-from PyQt5.QtWidgets import QMainWindow, QWidget, QGridLayout, QLineEdit, QPushButton, QHBoxLayout, QFormLayout, QLabel, QComboBox
+from PyQt5.QtWidgets import QMainWindow, QWidget, QGridLayout, QLineEdit, QPushButton, QHBoxLayout, QFormLayout, QLabel, QComboBox, QCheckBox, QVBoxLayout
 
 from PyQt5.QtCore import Qt
 
@@ -15,17 +15,17 @@ class AdupUI(QMainWindow):
         # Set some main window's properties
         self.setWindowTitle('User Creator')
         self.setFixedSize(300, 500)
-        self.general_layout = QHBoxLayout()
+        self.general_layout = QVBoxLayout()
         # Set the central widget which is the parent for the rest of the gui components
         self._central_widget = QWidget(self)
         self.setCentralWidget(self._central_widget)
         self._central_widget.setLayout(self.general_layout)
-        # Create the main form
+        #Create the main form
         self._create_main_form()
-        #self._create_buttons()
+        self._create_checkboxes()
 
     def _create_main_form(self):
-        # Create the main form
+        #Create the main form
         self.main_form_layout = QFormLayout()
         #Create the form's widgets
         self.fn_line_edit = QLineEdit()
@@ -40,9 +40,9 @@ class AdupUI(QMainWindow):
         self.emp_no_line_edit = QLineEdit()
         self.psswd_line_edit = QLineEdit()
         self.org_unit_combobox = QComboBox()
-        #set the password to hidden
+        #Set the password to hidden
         self.psswd_line_edit.setEchoMode(QLineEdit.Password)
-        # Set create the actual form
+        #Add widgets to form
         self.main_form_layout.addRow(QLabel("First Name:"), self.fn_line_edit)
         self.main_form_layout.addRow(QLabel("Surname:"), self.sn_line_edit)
         self.main_form_layout.addRow(QLabel("Display Name:"), self.dn_line_edit)
@@ -58,10 +58,24 @@ class AdupUI(QMainWindow):
         #Add this form layout to the main layout
         self.general_layout.addLayout(self.main_form_layout)
 
+    def _create_checkboxes(self):
+        self.checkbox_layout = QVBoxLayout()
+        #Create checkbox widgets
+        self.change_psswd = QCheckBox("Change Password at Next Logon")
+        self.psswd_no_expire = QCheckBox("Password Never Expires")
+        #set checkboxes to checked
+        self.change_psswd.setChecked(True)
+        self.psswd_no_expire.setChecked(True)
+        #Add checkboxes to form
+        self.checkbox_layout.addWidget(self.change_psswd)
+        self.checkbox_layout.addWidget(self.psswd_no_expire)
+        #Add to the main layout
+        self.general_layout.addLayout(self.checkbox_layout)
+
     def _create_buttons(self):
         self.buttons = {}
         buttons_layout = QGridLayout()
-        # Button text | position on the QGridLayout
+        #Button text | position on the QGridLayout
         buttons = {'7': (0, 0),
                    '8': (0, 1),
                    '9': (0, 2),
