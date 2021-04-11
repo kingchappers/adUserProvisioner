@@ -32,13 +32,12 @@ class AdupUI(QMainWindow):
         self.dn_line_edit = QLineEdit()
         self.uln_line_edit = QLineEdit()
         self.upn_line_edit = QLineEdit()
-        self.job_title_combobox = QComboBox()
-        self.dept_combobox = QComboBox()
         self.company_combobox = QComboBox()
+        self.dept_combobox = QComboBox()
+        self.job_title_combobox = QComboBox()
         self.mngr_line_edit = QLineEdit()
         self.emp_no_line_edit = QLineEdit()
         self.psswd_line_edit = QLineEdit()
-        self.org_unit_combobox = QComboBox()
         #Set the password to hidden
         self.psswd_line_edit.setEchoMode(QLineEdit.Password)
         #Add widgets to form
@@ -47,13 +46,12 @@ class AdupUI(QMainWindow):
         self.main_form_layout.addRow(QLabel("Display Name:"), self.dn_line_edit)
         self.main_form_layout.addRow(QLabel("User Logon Name:"), self.uln_line_edit)
         self.main_form_layout.addRow(QLabel("User Principal Name:"), self.upn_line_edit)
-        self.main_form_layout.addRow(QLabel("Job Title:"), self.job_title_combobox)
-        self.main_form_layout.addRow(QLabel("Department:"), self.dept_combobox)
         self.main_form_layout.addRow(QLabel("Company:"), self.company_combobox)
+        self.main_form_layout.addRow(QLabel("Department:"), self.dept_combobox)
+        self.main_form_layout.addRow(QLabel("Job Title:"), self.job_title_combobox)
         self.main_form_layout.addRow(QLabel("Manager:"), self.mngr_line_edit)
         self.main_form_layout.addRow(QLabel("Employee Number:"), self.emp_no_line_edit)
         self.main_form_layout.addRow(QLabel("Password:"), self.psswd_line_edit)
-        self.main_form_layout.addRow(QLabel("Organisational Unit:"), self.org_unit_combobox)
         #Add this form layout to the main layout
         self.general_layout.addLayout(self.main_form_layout)
 
