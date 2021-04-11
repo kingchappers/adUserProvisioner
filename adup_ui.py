@@ -33,10 +33,8 @@ class AdupUI(QMainWindow):
         self.uln_line_edit = QLineEdit()
         self.upn_line_edit = QLineEdit()
         self.job_title_combobox = QComboBox()
-        
         self.dept_combobox = QComboBox()
         self.company_combobox = QComboBox()
-
         self.mngr_line_edit = QLineEdit()
         self.emp_no_line_edit = QLineEdit()
         self.psswd_line_edit = QLineEdit()
