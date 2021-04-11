@@ -85,16 +85,3 @@ class AdupUI(QMainWindow):
         self.buttons_layout.addRow(self.create_user_btn)
         #Add to the main layout
         self.general_layout.addLayout(self.buttons_layout)
-
-    def set_displaytext(self, text):
-        """Set display's text."""
-        self.display.setText(text)
-        self.display.setFocus()
-
-    def display_text(self):
-        """Get display's text."""
-        return self.display.text()
-
-    def clear_display(self):
-        """Clear the display."""
-        self.set_displaytext('')

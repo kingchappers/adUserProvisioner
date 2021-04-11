@@ -3,8 +3,5 @@
 
 class AdProvisionerMdl:
     """Model"""
-    def command_builder(self):
+    def get_combobox_data(self):
         x=1
-
-    def command_doer(self):
-        y=2
