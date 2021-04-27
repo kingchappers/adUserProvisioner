@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""adup ui module"""
+"""ADUP UI module"""
 
 # Import widgets for PyQt5 (on 2 lines for ease of reading)
 from PyQt5.QtWidgets import QLineEdit, QPushButton, QLabel, QComboBox, QCheckBox, QWidget
 from PyQt5.QtWidgets import QVBoxLayout, QFormLayout, QMainWindow
 
 class AdupUI(QMainWindow):
-    """adupUI's View (GUI)."""
+    """ADUP View (GUI)."""
     def __init__(self):
         #View initializer
         super().__init__()

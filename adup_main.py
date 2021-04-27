@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Main module."""
+"""ADUP Main module."""
 
 import sys
 from PyQt5.QtWidgets import QApplication
@@ -8,7 +8,7 @@ from adup_ctrl import AdupCtrl
 from adup_ui import AdupUI
 
 def main():
-    """Main function."""
+    """ADUP Main function."""
     # Create an instance of QApplication
     adup = QApplication(sys.argv)
     # Show the calculator's GUI

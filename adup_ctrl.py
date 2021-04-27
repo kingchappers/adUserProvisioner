@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Adup controller module."""
+"""ADUP controller module."""
 
 #Controller class
 class AdupCtrl:
-    """Adup Controller class."""
+    """ADUP Controller Class."""
     def __init__(self, view):
         #Controller initializer.
         #self._evaluate = model
