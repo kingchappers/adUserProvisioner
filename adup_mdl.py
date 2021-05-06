@@ -10,5 +10,6 @@ class AdupMdl:
         with open(json_file_location, 'r') as json_file:
             json_data = json.load(json_file)
 
+        #by deafault the json_data is of dict (dictionary) type
         return json_data
     
