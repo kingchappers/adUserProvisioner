@@ -1,4 +1,27 @@
 {
+    "Construction" : [
+
+    ],
+    
+    "Interiors": [
+
+    ],
+
+    "Holdings": [ 
+            {
+                "deptName": "Information Technology",
+                "roles": ["IT Security Analyst", "Hosting and Storage Analyst", "Hosting and Storage Engineer", "Role does not exist"]
+            },
+            {
+                "deptName": "People Team",
+                "roles": ["Principal Group People Manager", "Group People Manager", "Role does not exist"]
+            },
+            {
+                "deptName": "Company Secretary"
+            }
+    ],
+    
+
     "company": [
         {
             "name": "Construction"
