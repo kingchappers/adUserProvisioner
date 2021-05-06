@@ -8,7 +8,7 @@
         },
         {
             "name": "Holdings",
-            "Department": [
+            "department": [
                 {
                     "deptName": "Information Technology",
                     "roles": ["IT Security Analyst", "Hosting and Storage Analyst", "Hosting and Storage Engineer", "Role does not exist"]
