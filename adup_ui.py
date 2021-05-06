@@ -85,3 +85,7 @@ class AdupUI(QMainWindow):
         self.buttons_layout.addRow(self.create_user_btn)
         #Add to the main layout
         self.general_layout.addLayout(self.buttons_layout)
+
+    def set_company_combobox(self, company):
+        """Set the company combobox values"""
+        self.company_combobox.addItem(company)
