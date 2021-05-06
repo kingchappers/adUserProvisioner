@@ -9,4 +9,6 @@ class AdupMdl:
         """Read the json file"""
         with open(json_file, 'r') as json_file:
             json_data = json.load(json_file)
+
+        return json_data
     
