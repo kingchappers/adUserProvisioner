@@ -5,9 +5,9 @@ import json
 
 class AdupMdl:
     """ADUP Model Class"""
-    def read_json_file(self, json_file):
+    def read_json_file(self, json_file_location):
         """Read the json file"""
-        with open(json_file, 'r') as json_file:
+        with open(json_file_location, 'r') as json_file:
             json_data = json.load(json_file)
 
         return json_data
