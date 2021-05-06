@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QApplication
 
 from adup_ctrl import AdupCtrl
 from adup_ui import AdupUI
+from adup_mdl import AdupMdl
 
 def main():
     """ADUP Main function."""
@@ -15,8 +16,8 @@ def main():
     view = AdupUI()
     view.show()
     # Create instances of the model and the controller
-    #model = evaluateExpression
-    AdupCtrl(view=view)
+    model = AdupMdl()
+    AdupCtrl(model=model, view=view)
     # Execute the calculator's main loop
     sys.exit(adup.exec_())
 

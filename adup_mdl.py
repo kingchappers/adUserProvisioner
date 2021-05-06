@@ -3,7 +3,7 @@
 
 import json
 
-class AdProvisionerMdl:
+class AdupMdl:
     """ADUP Model Class"""
     def read_json_file(self, json_file):
         """Read the json file"""
