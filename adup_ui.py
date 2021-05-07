@@ -92,16 +92,7 @@ class AdupUI(QMainWindow):
         #Add to the main layout
         self.general_layout.addLayout(self.buttons_layout)
 
-    def signal_listener(self):
-        self.check_duplicate_btn.clicked.connect(self.successful_button3)
-
-    def successful_button3(self):
-        print("test3UI")
-
     def set_company_combobox(self):
         """Set the company combobox values"""
         companies = self._controller.get_company_combobox()
         self.company_combobox.addItems(companies)
-
-    def print_my_things(self, thing):
-        print(thing)

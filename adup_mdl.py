@@ -12,7 +12,4 @@ class AdupMdl:
 
         #by deafault the json_data is of dict (dictionary) type when imported, but will be processed later on
         return json_data
-
-    def print_shit2(self):
-        print("poopModel")
     

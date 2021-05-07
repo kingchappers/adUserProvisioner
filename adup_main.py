@@ -19,9 +19,7 @@ def main():
     #Instanciate View
     view = AdupUI(controller = controller)
     #Show the GUI
-    view.show()
-    
-    
+    view.show()    
     # Execute the main loop
     sys.exit(adup.exec_())
 
