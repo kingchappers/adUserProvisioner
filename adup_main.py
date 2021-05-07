@@ -12,13 +12,17 @@ def main():
     """ADUP Main function."""
     # Create an instance of QApplication
     adup = QApplication(sys.argv)
-    # Show the calculator's GUI
-    view = AdupUI()
-    view.show()
-    # Create instances of the model and the controller
+    #Instanciate Model
     model = AdupMdl()
-    AdupCtrl(model=model, view=view)
-    # Execute the calculator's main loop
+    #Instanciate Controller
+    controller = AdupCtrl(model=model)
+    #Instanciate View
+    view = AdupUI(controller = controller)
+    #Show the GUI
+    view.show()
+    
+    
+    # Execute the main loop
     sys.exit(adup.exec_())
 
 if __name__ == '__main__':

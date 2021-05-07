@@ -7,9 +7,10 @@ from PyQt5.QtWidgets import QVBoxLayout, QFormLayout, QMainWindow
 
 class AdupUI(QMainWindow):
     """ADUP View (GUI)."""
-    def __init__(self):
+    def __init__(self, controller):
         #View initializer
         super().__init__()
+        self._controller = controller
         # Set some main window's properties
         self.setWindowTitle('User Creator')
         self.setFixedSize(300, 500)
@@ -22,6 +23,8 @@ class AdupUI(QMainWindow):
         self._create_main_form()
         self._create_checkboxes()
         self._create_buttons()
+        #self._signal_listener()
+        self.set_company_combobox()
 
     def _create_main_form(self):
         #Create the main form
@@ -75,13 +78,13 @@ class AdupUI(QMainWindow):
     def _create_buttons(self):
         self.buttons_layout = QFormLayout()
         #Create the widgets
-        self.check_duplicate_btn = QPushButton("Check for duplicates")
+        self.check_duplicate_btn = QPushButton("Check for duplicates", self)
         self.check_duplicate_line_edit = QLineEdit()
         self.check_duplicate_line_edit.setReadOnly(True)
-        self.create_powershell_btn = QPushButton("Create Powershell Command")
+        self.create_powershell_btn = QPushButton("Create Powershell Command", self)
         self.create_powershell_command_result_line_edit = QLineEdit()
         self.create_powershell_command_result_line_edit.setReadOnly(True)
-        self.create_user_btn = QPushButton("Create User")
+        self.create_user_btn = QPushButton("Create User", self)
         #Add buttons to form
         self.buttons_layout.addRow(self.check_duplicate_btn, self.check_duplicate_line_edit)
         self.buttons_layout.addRow(self.create_powershell_btn, self.create_powershell_command_result_line_edit)
@@ -89,6 +92,16 @@ class AdupUI(QMainWindow):
         #Add to the main layout
         self.general_layout.addLayout(self.buttons_layout)
 
-    def set_company_combobox(self, company):
+    def signal_listener(self):
+        self.check_duplicate_btn.clicked.connect(self.successful_button3)
+
+    def successful_button3(self):
+        print("test3UI")
+
+    def set_company_combobox(self):
         """Set the company combobox values"""
-        self.company_combobox.addItem(company)
+        companies = self._controller.get_company_combobox()
+        self.company_combobox.addItems(companies)
+
+    def print_my_things(self, thing):
+        print(thing)
