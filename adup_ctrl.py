@@ -21,17 +21,17 @@ class AdupCtrl:
         json_data = self._model.read_json_file(config_file_location)
         department_list = list()
 
+        if combo_name == 'company':
+            for i in json_data[combobox_text]:
+                #print(i)
+                #print(i['deptName'])
+                #print(list(i.values())[0])
+                department_list.append(list(i.values())[0])
+                #print(type(list(i.values())[0]))
+                #return "poop"
 
-        for i in json_data[combobox_text]:
-            #print(i)
-            #print(i['deptName'])
-            #print(list(i.values())[0])
-            department_list.append(list(i.values())[0])
-            #print(type(list(i.values())[0]))
-            #return "poop"
-
-        #print(department_list)
-        return department_list
+            #print(department_list)
+            return department_list
         #print(json_data[combobox_text]['deptName'])
         #print(combobox_text)
         #print(json_data.items())
