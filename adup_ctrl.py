@@ -13,5 +13,4 @@ class AdupCtrl:
         config_file_location = './config/config.json'
         json_data = self._model.read_json_file(config_file_location)
 
-        print(json_data.keys())
         return json_data.keys()
