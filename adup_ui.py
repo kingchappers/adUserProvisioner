@@ -25,6 +25,7 @@ class AdupUI(QMainWindow):
         self._create_buttons()
         #self._signal_listener()
         self.set_company_combobox()
+        self.detect_combobox_change()
 
     def _create_main_form(self):
         #Create the main form
@@ -94,5 +95,8 @@ class AdupUI(QMainWindow):
 
     def set_company_combobox(self):
         """Set the company combobox values"""
-        companies = self._controller.get_company_combobox()
+        companies = self._controller.get_companies()
         self.company_combobox.addItems(companies)
+
+    def detect_combobox_change(self):
+        self.company_combobox.currentTextChanged.connect(self._controller.get_next_combo_element)
