@@ -102,8 +102,12 @@ class AdupUI(QMainWindow):
     def detect_combobox_change(self):
         """Detect changes to the comboboxes and call a function sending combobox text"""
         self.company_combobox.currentTextChanged.connect(self.set_department_combobox)
+        self.dept_combobox.currentTextChanged.connect(self.set_jobs_combobox)
 
     def set_department_combobox(self):
         departments = self._controller.get_next_combo_element(self.company_combobox.currentText(), 'company')
         self.dept_combobox.addItems(departments)
         self.dept_combobox.setCurrentIndex(-1)
+
+    def set_jobs_combobox(self):
+        job_titles = self._controller.get_next_combo_element(self.dept_combobox.currentText(), 'department')
