@@ -37,11 +37,11 @@ class AdupUI(QMainWindow):
         self.uln_line_edit = QLineEdit()
         self.upn_line_edit = QLineEdit()
         self.company_combobox = QComboBox()
-        self.company_combobox.addItem("Select an item...")
+        #self.company_combobox.setPlaceholderText("Select an item...")
         self.dept_combobox = QComboBox()
-        self.dept_combobox.addItem("Select an item...")
+        #self.dept_combobox.addItem("Select an item...")
         self.job_title_combobox = QComboBox()
-        self.job_title_combobox.addItem("Select an item...")
+        #self.job_title_combobox.addItem("Select an item...")
         self.mngr_line_edit = QLineEdit()
         self.emp_no_line_edit = QLineEdit()
         self.psswd_line_edit = QLineEdit()
@@ -97,6 +97,13 @@ class AdupUI(QMainWindow):
         """Set the company combobox values"""
         companies = self._controller.get_companies()
         self.company_combobox.addItems(companies)
+        self.company_combobox.setCurrentIndex(-1)
 
     def detect_combobox_change(self):
-        self.company_combobox.currentTextChanged.connect(self._controller.get_next_combo_element)
+        """Detect changes to the comboboxes and call a function sending combobox text"""
+        self.company_combobox.currentTextChanged.connect(self.set_department_combobox)
+
+    def set_department_combobox(self):
+        departments = self._controller.get_next_combo_element(self.company_combobox.currentText(), 'company')
+        self.dept_combobox.addItems(departments)
+        self.dept_combobox.setCurrentIndex(-1)
