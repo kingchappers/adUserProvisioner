@@ -110,4 +110,4 @@ class AdupUI(QMainWindow):
         self.dept_combobox.setCurrentIndex(-1)
 
     def set_jobs_combobox(self):
-        job_titles = self._controller.get_next_combo_element(self.dept_combobox.currentText(), 'department')
+        job_titles = self._controller.get_next_combo_element(self.dept_combobox.currentText(), 'department', self.company_combobox.currentText())

@@ -15,7 +15,7 @@ class AdupCtrl:
         print(type(json_data.keys()))
         return json_data.keys()
 
-    def get_next_combo_element(self, combobox_text, combo_name):
+    def get_next_combo_element(self, combobox_text, combo_name, *test):
         """Select the next values of the combobox based on the selection of another"""
         config_file_location = './config/config.json'
         json_data = self._model.read_json_file(config_file_location)
@@ -32,6 +32,9 @@ class AdupCtrl:
 
             #print(department_list)
             return department_list
+        elif combo_name == 'department':
+            for i in json_data[test][1][combobox_text]:
+                print(i)
         #print(json_data[combobox_text]['deptName'])
         #print(combobox_text)
         #print(json_data.items())
