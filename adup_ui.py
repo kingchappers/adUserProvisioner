@@ -92,12 +92,11 @@ class AdupUI(QMainWindow):
         self.buttons_layout.addRow(self.create_user_btn)
         #Add to the main layout
         self.general_layout.addLayout(self.buttons_layout)
-    
 
     def detect_combobox_change(self):
         """Detect changes to the comboboxes and call a function sending combobox text"""
         self.company_combobox.currentTextChanged.connect(self.set_department_combobox)
-        self.dept_combobox.currentTextChanged.connect(self.set_jobs_combobox)
+        self.dept_combobox.currentTextChanged.connect(self.set_job_combobox)
 
     def set_company_combobox(self):
         """Set the company combobox values"""
@@ -106,18 +105,16 @@ class AdupUI(QMainWindow):
         #self.company_combobox.setCurrentIndex(-1)
 
     def set_department_combobox(self):
+        """Set the department combobox values"""
         #Clears the box if the user changes their mind
         self.dept_combobox.clear()
         departments = self._controller.get_next_combo_element(self.company_combobox.currentText(), 'company')
         self.dept_combobox.addItems(departments)
         #self.dept_combobox.setCurrentIndex(-1)
 
-    def set_jobs_combobox(self):
+    def set_job_combobox(self):
+        """Set the Job combobox values"""
         #Clears the box if the user changes their mind
         self.job_title_combobox.clear()
         jobs = self._controller.get_next_combo_element(self.dept_combobox.currentText(), 'department', self.company_combobox.currentText(), self.dept_combobox.currentIndex())
         self.job_title_combobox.addItems(jobs)
-
-
-    #def set_job_title_combobox(self):
-        
