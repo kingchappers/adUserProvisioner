@@ -115,10 +115,9 @@ class AdupUI(QMainWindow):
     def set_jobs_combobox(self):
         #Clears the box if the user changes their mind
         self.job_title_combobox.clear()
-        jobs = self._controller.get_next_combo_element(self.dept_combobox.currentText(), 'department', self.company_combobox.currentText())
+        jobs = self._controller.get_next_combo_element(self.dept_combobox.currentText(), 'department', self.company_combobox.currentText(), self.dept_combobox.currentIndex())
         self.job_title_combobox.addItems(jobs)
-        #print(self.company_combobox.currentText())
-        #print(type(self.company_combobox.currentText()))
+
 
     #def set_job_title_combobox(self):
         
