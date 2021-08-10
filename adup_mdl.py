@@ -2,6 +2,7 @@
 """ADUP model Module"""
 
 import json
+import subprocess
 
 class AdupMdl:
     """ADUP Model Class"""
@@ -12,4 +13,9 @@ class AdupMdl:
 
         #by deafault the json_data is of dict (dictionary) type when imported, but will be processed later on
         return json_data
-    
+
+    def run_powershell_command(self, cmd):
+        """Run a Powershell Command using subprocess"""
+        completed = subprocess.run(["powershell", "-Command", cmd], capture_output=True, check=True)
+        return completed
+        
