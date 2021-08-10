@@ -35,5 +35,6 @@ class AdupCtrl:
 
             return job_title_list
 
-    def create_user_command(self, firstname, surname, displayname, user_logon_name, user_principal_name, company, department, job_title, manager, password, pass_to_subprocess):
+    def create_user_command(self, firstname, surname, displayname, user_logon_name, user_principal_name, company, department, job_title, manager, password, org_unit, pass_to_subprocess):
         """Create the command to create a new user in powershell"""
+        print("hello")

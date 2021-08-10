@@ -123,5 +123,5 @@ class AdupUI(QMainWindow):
 
     def connect_button_press_functions(self):
         """Detects when a button is pressed and sends to controller"""
-        self.create_user_btn.clicked.connect(self._controller.create_user_command(self.fn_line_edit.text, self.sn_line_edit.text, self.dn_line_edit.text, self.uln_line_edit.text, self.upn_line_edit.text, self.company_combobox.currentText, self.dept_combobox.currentText, self.job_title_combobox.currentText, self.mngr_line_edit.text, self.psswd_line_edit.text, True))
+        self.create_user_btn.clicked.connect(self._controller.create_user_command(self.fn_line_edit.text, self.sn_line_edit.text, self.dn_line_edit.text, self.uln_line_edit.text, self.upn_line_edit.text, self.company_combobox.currentText, self.dept_combobox.currentText, self.job_title_combobox.currentText, self.mngr_line_edit.text, self.psswd_line_edit.text, slef.org_unit_combobox.currentText, True))
 
