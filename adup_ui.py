@@ -118,3 +118,7 @@ class AdupUI(QMainWindow):
         self.job_title_combobox.clear()
         jobs = self._controller.get_next_combo_element(self.dept_combobox.currentText(), 'department', self.company_combobox.currentText(), self.dept_combobox.currentIndex())
         self.job_title_combobox.addItems(jobs)
+
+    def connect_button_press_functions(self):
+        """Detects when a button is pressed and sends to controller"""
+        self.create_user_btn.clicked.connect(self._controller.get_ad_structure)
