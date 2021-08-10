@@ -47,6 +47,7 @@ class AdupUI(QMainWindow):
         self.psswd_line_edit = QLineEdit()
         #Set the password to hidden
         self.psswd_line_edit.setEchoMode(QLineEdit.Password)
+        self.org_unit_combobox = QComboBox()
         #Add widgets to form
         self.main_form_layout.addRow(QLabel("First Name:"), self.fn_line_edit)
         self.main_form_layout.addRow(QLabel("Surname:"), self.sn_line_edit)
@@ -59,6 +60,7 @@ class AdupUI(QMainWindow):
         self.main_form_layout.addRow(QLabel("Manager:"), self.mngr_line_edit)
         self.main_form_layout.addRow(QLabel("Employee Number:"), self.emp_no_line_edit)
         self.main_form_layout.addRow(QLabel("Password:"), self.psswd_line_edit)
+        self.main_form_layout.addRow(QLabel("Oraganisational Unit:"), self.org_unit_combobox)
         #Add this form layout to the main layout
         self.general_layout.addLayout(self.main_form_layout)
 
@@ -121,4 +123,4 @@ class AdupUI(QMainWindow):
 
     def connect_button_press_functions(self):
         """Detects when a button is pressed and sends to controller"""
-        self.create_user_btn.clicked.connect(self._controller.get_ad_structure)
+        self.create_user_btn.clicked.connect(self._controller.create_user)
