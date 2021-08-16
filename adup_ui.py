@@ -26,6 +26,7 @@ class AdupUI(QMainWindow):
         #self._signal_listener()
         self.set_company_combobox()
         self.detect_combobox_change()
+        self.detect_button_click()
 
     def _create_main_form(self):
         #Create the main form
@@ -121,7 +122,12 @@ class AdupUI(QMainWindow):
         jobs = self._controller.get_next_combo_element(self.dept_combobox.currentText(), 'department', self.company_combobox.currentText(), self.dept_combobox.currentIndex())
         self.job_title_combobox.addItems(jobs)
 
-    def connect_button_press_functions(self):
+    def detect_button_click(self):
         """Detects when a button is pressed and sends to controller"""
-        self.create_user_btn.clicked.connect(self._controller.create_user_command(self.fn_line_edit.text, self.sn_line_edit.text, self.dn_line_edit.text, self.uln_line_edit.text, self.upn_line_edit.text, self.company_combobox.currentText, self.dept_combobox.currentText, self.job_title_combobox.currentText, self.mngr_line_edit.text, self.psswd_line_edit.text, slef.org_unit_combobox.currentText, True))
+        #self.create_powershell_btn.clicked.connect(self._controller.create_user_command(self.fn_line_edit.text, self.sn_line_edit.text, self.dn_line_edit.text, self.uln_line_edit.text, self.upn_line_edit.text, self.company_combobox.currentText, self.dept_combobox.currentText, self.job_title_combobox.currentText, self.mngr_line_edit.text, self.psswd_line_edit.text, self.org_unit_combobox.currentText, True))
+        self.create_powershell_btn.clicked.connect(self.create_powershell_command)
 
+    def create_powershell_command(self):        
+        command = self._controller.create_user_command(self.fn_line_edit.text, self.sn_line_edit.text, self.dn_line_edit.text, self.uln_line_edit.text, self.upn_line_edit.text, self.company_combobox.currentText, self.dept_combobox.currentText, self.job_title_combobox.currentText, self.mngr_line_edit.text, self.psswd_line_edit.text, self.org_unit_combobox.currentText, True)
+
+        self.create_powershell_command_result_line_edit.setText(command)
