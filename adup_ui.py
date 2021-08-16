@@ -128,9 +128,11 @@ class AdupUI(QMainWindow):
         self.create_powershell_btn.clicked.connect(self.create_powershell_command)
 
     def create_powershell_command(self):        
-        command = self._controller.create_user_command(self.fn_line_edit.text, self.sn_line_edit.text, self.dn_line_edit.text, self.uln_line_edit.text, self.upn_line_edit.text, self.company_combobox.currentText, self.dept_combobox.currentText, self.job_title_combobox.currentText, self.mngr_line_edit.text, self.psswd_line_edit.text, self.org_unit_combobox.currentText)
+        command = self._controller.create_user_command(self.fn_line_edit.text(), self.sn_line_edit.text(), self.dn_line_edit.text(), self.uln_line_edit.text(), self.upn_line_edit.text(), self.company_combobox.currentText(), self.dept_combobox.currentText(), self.job_title_combobox.currentText(), self.mngr_line_edit.text(), self.psswd_line_edit.text(), self.org_unit_combobox.currentText())
 
         #Clear line edit before filling it 
         self.create_powershell_command_result_line_edit.clear()
+
+        #self.create_powershell_command_result_line_edit.setText(self.fn_line_edit.text())
 
         self.create_powershell_command_result_line_edit.setText(command)
