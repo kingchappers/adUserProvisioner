@@ -35,10 +35,12 @@ class AdupCtrl:
 
             return job_title_list
 
-    def create_user_command(self, firstname, surname, displayname, user_logon_name, user_principal_name, company, department, job_title, manager, password, org_unit, pass_to_subprocess):
+    def create_user_command(self, firstname, surname, displayname, user_logon_name, user_principal_name, company, department, job_title, manager, password, org_unit):
         """Create the command to create a new user in powershell"""
         create_usr_cmd = f"New-ADUser -Name '{firstname} {surname}' -GivenName '{firstname}' -Surname '{surname}' -SamAccountName '{user_logon_name}' -UserPrincipalName '{user_principal_name}' -Path '{org_unit}' -AccountPassword (ConvertTo-SecureString -AsPlainText '{password}') -Enabled $true"
         
         test = "hi"
 
-        return test
+        # remove displayname
+
+        return create_usr_cmd
