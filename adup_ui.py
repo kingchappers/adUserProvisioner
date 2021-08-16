@@ -85,7 +85,7 @@ class AdupUI(QMainWindow):
         self.check_duplicate_btn = QPushButton("Check for duplicates", self)
         self.check_duplicate_line_edit = QLineEdit()
         self.check_duplicate_line_edit.setReadOnly(True)
-        self.create_powershell_btn = QPushButton("Create Powershell Command", self)
+        self.create_powershell_btn = QPushButton("Create Powershell Cmd", self)
         self.create_powershell_command_result_line_edit = QLineEdit()
         self.create_powershell_command_result_line_edit.setReadOnly(True)
         self.create_user_btn = QPushButton("Create User", self)
@@ -129,5 +129,8 @@ class AdupUI(QMainWindow):
 
     def create_powershell_command(self):        
         command = self._controller.create_user_command(self.fn_line_edit.text, self.sn_line_edit.text, self.dn_line_edit.text, self.uln_line_edit.text, self.upn_line_edit.text, self.company_combobox.currentText, self.dept_combobox.currentText, self.job_title_combobox.currentText, self.mngr_line_edit.text, self.psswd_line_edit.text, self.org_unit_combobox.currentText)
+
+        #Clear line edit before filling it 
+        self.create_powershell_command_result_line_edit.clear()
 
         self.create_powershell_command_result_line_edit.setText(command)
