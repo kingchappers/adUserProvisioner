@@ -14,8 +14,14 @@ class AdupMdl:
         #by deafault the json_data is of dict (dictionary) type when imported, but will be processed later on
         return json_data
 
-    def run_powershell_command(self, cmd):
+    def run_usr_creation_powershell_command(self, cmd):
         """Run a Powershell Command using subprocess"""
         completed = subprocess.run(["powershell", "-Command", cmd], capture_output=True, check=True)
         return completed
+
+    def query_usr_manager(self, manager_name):
+        """Query AD to see if the entered manager exists"""
+
+    def get_ad_structure(self):
+        """Get the AD structure, this is used to populate the OU dropdown""" 
         
