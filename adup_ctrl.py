@@ -43,6 +43,9 @@ class AdupCtrl:
 
         return create_usr_cmd
 
+    def create_user(self, command):
+        self._model.create_user_in_powershell(command)
+
     def get_ou_structure(self):
         """Get the OU structure"""
         ou_structure = self._model.query_ad_ou_structure()
