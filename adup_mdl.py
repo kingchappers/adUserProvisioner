@@ -19,9 +19,6 @@ class AdupMdl:
         completed = subprocess.run(["powershell", "-Command", cmd], capture_output=True, check=True)
         return completed
 
-    def query_usr_manager(self, manager_name):
-        """Query AD to see if the entered manager exists"""
-
     def query_ad_ou_structure(self):
         """Get the AD structure, this is used to populate the OU dropdown""" 
         get_ou_structure_command = "$OUs = Get-ADOrganizationalUnit -Filter * \n $OUs.DistinguishedName"
@@ -33,3 +30,9 @@ class AdupMdl:
         cmd_output_list = cmd_output_as_string.split("\r\n")
 
         return cmd_output_list
+
+    def create_user(self, create_user_command):
+        subprocess.run(["powershell", "-Command", create_user_command], capture_output=True, check=True)
+
+    def query_usr_manager(self, manager_name):
+        """Query AD to see if the entered manager exists"""
