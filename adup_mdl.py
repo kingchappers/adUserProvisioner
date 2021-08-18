@@ -22,6 +22,6 @@ class AdupMdl:
     def query_usr_manager(self, manager_name):
         """Query AD to see if the entered manager exists"""
 
-    def get_ad_structure(self):
+    def get_ou_structure(self):
         """Get the AD structure, this is used to populate the OU dropdown""" 
-        
+        get_ou_structure_command = "Get-ADOrganizationalUnit -Filter * -Properties CanonicalName | select-object CanonicalName"
