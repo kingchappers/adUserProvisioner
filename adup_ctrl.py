@@ -42,3 +42,8 @@ class AdupCtrl:
         #Manager must be an existing user so I need to create a search function for this user
 
         return create_usr_cmd
+
+    def get_ou_structure(self):
+        """Get the OU structure"""
+        ou_structure = self._model.query_ad_ou_structure()
+        return ou_structure
