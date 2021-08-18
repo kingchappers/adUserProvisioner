@@ -4,7 +4,6 @@
 # Import widgets for PyQt5 (on 2 lines for ease of reading)
 from PyQt5.QtWidgets import QLineEdit, QPushButton, QLabel, QComboBox, QCheckBox, QWidget
 from PyQt5.QtWidgets import QVBoxLayout, QFormLayout, QMainWindow
-import sys
 
 class AdupUI(QMainWindow):
     """ADUP View (GUI)."""
@@ -14,7 +13,7 @@ class AdupUI(QMainWindow):
         self._controller = controller
         # Set some main window's properties
         self.setWindowTitle('User Creator')
-        self.setFixedSize(300, 500)
+        self.setFixedSize(400, 500)
         self.general_layout = QVBoxLayout()
         # Set the central widget which is the parent for the rest of the gui components
         self._central_widget = QWidget(self)
