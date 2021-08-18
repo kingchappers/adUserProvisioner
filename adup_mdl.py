@@ -24,4 +24,9 @@ class AdupMdl:
 
     def get_ou_structure(self):
         """Get the AD structure, this is used to populate the OU dropdown""" 
-        get_ou_structure_command = "Get-ADOrganizationalUnit -Filter * -Properties CanonicalName | select-object CanonicalName"
+        get_ou_structure_command = "$OUs = Get-ADOrganizationalUnit -Filter * \n $OUs.DistinguishedName"
+
+        #Run the powershell command and output the result
+        test = subprocess.run(["powershell", "-Command", get_ou_structure_command], capture_output=True, check=True)
+        
+        test.stdout.decode('utf-8').rstrip()
