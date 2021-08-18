@@ -134,16 +134,22 @@ class AdupUI(QMainWindow):
 
     def detect_button_click(self):
         """Detects when a button is pressed and sends to controller"""
-        #self.create_powershell_btn.clicked.connect(self._controller.create_user_command(self.fn_line_edit.text, self.sn_line_edit.text, self.dn_line_edit.text, self.uln_line_edit.text, self.upn_line_edit.text, self.company_combobox.currentText, self.dept_combobox.currentText, self.job_title_combobox.currentText, self.mngr_line_edit.text, self.psswd_line_edit.text, self.org_unit_combobox.currentText, True))
         self.create_powershell_btn.clicked.connect(self.create_powershell_command)
+        self.create_user_btn.clicked.connect(self.create_user)
 
     def create_powershell_command(self):
         """Create the user creation Powershell command"""        
         command = self._controller.create_user_command(self.fn_line_edit.text(), self.sn_line_edit.text(), self.dn_line_edit.text(), self.uln_line_edit.text(), self.upn_line_edit.text(), self.company_combobox.currentText(), self.dept_combobox.currentText(), self.job_title_combobox.currentText(), self.mngr_line_edit.text(), self.psswd_line_edit.text(), self.org_unit_combobox.currentText())
-
+        
         #Clear line edit before filling it 
         self.create_powershell_command_result_line_edit.clear()
-
-        #self.create_powershell_command_result_line_edit.setText(self.fn_line_edit.text())
-
         self.create_powershell_command_result_line_edit.setText(command)
+
+    def create_user(self):
+        """Get create user command and create user"""
+        command = self._controller.create_user_command(self.fn_line_edit.text(), self.sn_line_edit.text(), self.dn_line_edit.text(), self.uln_line_edit.text(), self.upn_line_edit.text(), self.company_combobox.currentText(), self.dept_combobox.currentText(), self.job_title_combobox.currentText(), self.mngr_line_edit.text(), self.psswd_line_edit.text(), self.org_unit_combobox.currentText())
+
+        try:
+            self._controller.create_user(command)
+        except Exception as e:
+            print(e)
