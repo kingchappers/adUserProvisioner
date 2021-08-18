@@ -22,7 +22,7 @@ class AdupMdl:
     def query_usr_manager(self, manager_name):
         """Query AD to see if the entered manager exists"""
 
-    def get_ou_structure(self):
+    def query_ad_ou_structure(self):
         """Get the AD structure, this is used to populate the OU dropdown""" 
         get_ou_structure_command = "$OUs = Get-ADOrganizationalUnit -Filter * \n $OUs.DistinguishedName"
         #Run the powershell command 
