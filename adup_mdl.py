@@ -31,3 +31,5 @@ class AdupMdl:
         cmd_output_as_string = cmd_raw_output.stdout.decode('utf-8').rstrip()
         #convert the powershell command result to a list split by the \r\n characters
         cmd_output_list = cmd_output_as_string.split("\r\n")
+
+        return cmd_output_list
