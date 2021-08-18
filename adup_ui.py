@@ -4,6 +4,7 @@
 # Import widgets for PyQt5 (on 2 lines for ease of reading)
 from PyQt5.QtWidgets import QLineEdit, QPushButton, QLabel, QComboBox, QCheckBox, QWidget
 from PyQt5.QtWidgets import QVBoxLayout, QFormLayout, QMainWindow
+import sys
 
 class AdupUI(QMainWindow):
     """ADUP View (GUI)."""
@@ -27,6 +28,7 @@ class AdupUI(QMainWindow):
         self.set_company_combobox()
         self.detect_combobox_change()
         self.detect_button_click()
+        self.set_ou_combobox()
 
     def _create_main_form(self):
         #Create the main form
@@ -49,6 +51,7 @@ class AdupUI(QMainWindow):
         #Set the password to hidden
         self.psswd_line_edit.setEchoMode(QLineEdit.Password)
         self.org_unit_combobox = QComboBox()
+        self.get_org_unit_btn = QPushButton()
         #Add widgets to form
         self.main_form_layout.addRow(QLabel("First Name:"), self.fn_line_edit)
         self.main_form_layout.addRow(QLabel("Surname:"), self.sn_line_edit)
@@ -61,7 +64,7 @@ class AdupUI(QMainWindow):
         self.main_form_layout.addRow(QLabel("Manager:"), self.mngr_line_edit)
         self.main_form_layout.addRow(QLabel("Employee Number:"), self.emp_no_line_edit)
         self.main_form_layout.addRow(QLabel("Password:"), self.psswd_line_edit)
-        self.main_form_layout.addRow(QLabel("Oraganisational Unit:"), self.org_unit_combobox)
+        self.main_form_layout.addRow(QLabel("Organisational Unit:"), self.org_unit_combobox)
         #Add this form layout to the main layout
         self.general_layout.addLayout(self.main_form_layout)
 
@@ -121,6 +124,14 @@ class AdupUI(QMainWindow):
         self.job_title_combobox.clear()
         jobs = self._controller.get_next_combo_element(self.dept_combobox.currentText(), 'department', self.company_combobox.currentText(), self.dept_combobox.currentIndex())
         self.job_title_combobox.addItems(jobs)
+
+    def set_ou_combobox(self):
+        try:
+            self.org_unit_combobox.addItems(self._controller.get_ou_structure())
+        except Exception as e:
+            #e = sys.exc_info()
+            print("Unable to query OU structure")
+            print(e)
 
     def detect_button_click(self):
         """Detects when a button is pressed and sends to controller"""
