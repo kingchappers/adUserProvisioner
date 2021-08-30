@@ -130,24 +130,24 @@ class AdupUI(QMainWindow):
 
     def detect_text_changes(self):
         """Detect when a form item changes and call the mandatory field check"""
-        self.fn_line_edit.textChanged.connect(self.detect_mandatory_fields)
-        self.sn_line_edit.textChanged.connect(self.detect_mandatory_fields)
-        self.dn_line_edit.textChanged.connect(self.detect_mandatory_fields)
-        self.uln_line_edit.textChanged.connect(self.detect_mandatory_fields)
-        self.upn_line_edit.textChanged.connect(self.detect_mandatory_fields)
-        self.company_combobox.currentIndexChanged.connect(self.detect_mandatory_fields)
-        self.dept_combobox.currentIndexChanged.connect(self.detect_mandatory_fields)
-        self.job_title_combobox.currentIndexChanged.connect(self.detect_mandatory_fields)
-        self.mngr_line_edit.textChanged.connect(self.detect_mandatory_fields)
-        self.psswd_line_edit.textChanged.connect(self.detect_mandatory_fields)
-        self.org_unit_combobox.currentIndexChanged.connect(self.detect_mandatory_fields)
+        self.fn_line_edit.textChanged.connect(self.check_mandatory_fields)
+        self.sn_line_edit.textChanged.connect(self.check_mandatory_fields)
+        self.dn_line_edit.textChanged.connect(self.check_mandatory_fields)
+        self.uln_line_edit.textChanged.connect(self.check_mandatory_fields)
+        self.upn_line_edit.textChanged.connect(self.check_mandatory_fields)
+        self.company_combobox.currentIndexChanged.connect(self.check_mandatory_fields)
+        self.dept_combobox.currentIndexChanged.connect(self.check_mandatory_fields)
+        self.job_title_combobox.currentIndexChanged.connect(self.check_mandatory_fields)
+        self.mngr_line_edit.textChanged.connect(self.check_mandatory_fields)
+        self.psswd_line_edit.textChanged.connect(self.check_mandatory_fields)
+        self.org_unit_combobox.currentIndexChanged.connect(self.check_mandatory_fields)
 
     def detect_button_click(self):
         """Detects when a button is pressed and sends to controller"""
         self.create_powershell_btn.clicked.connect(self.create_powershell_command)
         self.create_user_btn.clicked.connect(self.create_user)
 
-    def detect_mandatory_fields(self):
+    def check_mandatory_fields(self):
         """Detects if the mandatory fields are filled, if not the create user button will be deactivated"""
         if(self.fn_line_edit.text() != '' and self.sn_line_edit.text() and self.dn_line_edit.text() != '' and self.uln_line_edit.text() != '' and self.upn_line_edit.text() != '' and  self.company_combobox.currentText != '' and self.dept_combobox.currentText != '' and self.job_title_combobox.currentText != '' and self.mngr_line_edit.text() != '' and self.psswd_line_edit.text() != '' and self.org_unit_combobox.currentText != ''):
             self.create_user_btn.setEnabled(True)
