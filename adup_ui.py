@@ -24,7 +24,7 @@ class AdupUI(QMainWindow):
         self._create_checkboxes()
         self._create_buttons()
         self.detect_button_click()
-        self.detect_mandatory_fields()
+        self.detect_text_changes()
         self.set_company_combobox()
         self.detect_combobox_change()
         self.set_ou_combobox()
@@ -88,6 +88,8 @@ class AdupUI(QMainWindow):
         self.create_powershell_command_result_line_edit = QLineEdit()
         self.create_powershell_command_result_line_edit.setReadOnly(True)
         self.create_user_btn = QPushButton("Create User", self)
+        #button set to disabled until conditions are met
+        self.create_user_btn.setEnabled(False)
         #Add buttons to form
         self.buttons_layout.addRow(self.check_duplicate_btn, self.check_duplicate_line_edit)
         self.buttons_layout.addRow(self.create_powershell_btn, self.create_powershell_command_result_line_edit)
@@ -126,6 +128,20 @@ class AdupUI(QMainWindow):
             print("Unable to query OU structure")
             print(e)
 
+    def detect_text_changes(self):
+        """Detect when a form item changes and call the mandatory field check"""
+        self.fn_line_edit.textChanged.connect(self.detect_mandatory_fields)
+        self.sn_line_edit.textChanged.connect(self.detect_mandatory_fields)
+        self.dn_line_edit.textChanged.connect(self.detect_mandatory_fields)
+        self.uln_line_edit.textChanged.connect(self.detect_mandatory_fields)
+        self.upn_line_edit.textChanged.connect(self.detect_mandatory_fields)
+        self.company_combobox.currentIndexChanged.connect(self.detect_mandatory_fields)
+        self.dept_combobox.currentIndexChanged.connect(self.detect_mandatory_fields)
+        self.job_title_combobox.currentIndexChanged.connect(self.detect_mandatory_fields)
+        self.mngr_line_edit.textChanged.connect(self.detect_mandatory_fields)
+        self.psswd_line_edit.textChanged.connect(self.detect_mandatory_fields)
+        self.org_unit_combobox.currentIndexChanged.connect(self.detect_mandatory_fields)
+
     def detect_button_click(self):
         """Detects when a button is pressed and sends to controller"""
         self.create_powershell_btn.clicked.connect(self.create_powershell_command)
@@ -133,7 +149,10 @@ class AdupUI(QMainWindow):
 
     def detect_mandatory_fields(self):
         """Detects if the mandatory fields are filled, if not the create user button will be deactivated"""
-
+        if(self.fn_line_edit.text() != '' and self.sn_line_edit.text() and self.dn_line_edit.text() != '' and self.uln_line_edit.text() != '' and self.upn_line_edit.text() != '' and  self.company_combobox.currentText != '' and self.dept_combobox.currentText != '' and self.job_title_combobox.currentText != '' and self.mngr_line_edit.text() != '' and self.psswd_line_edit.text() != '' and self.org_unit_combobox.currentText != ''):
+            self.create_user_btn.setEnabled(True)
+        else:
+            self.create_user_btn.setEnabled(False)
 
     def create_powershell_command(self):
         """Create the user creation Powershell command"""        
@@ -151,19 +170,3 @@ class AdupUI(QMainWindow):
             self._controller.create_user(command)
         except Exception as e:
             print(e)
-
-
-    self.fn_line_edit = QLineEdit()
-        self.sn_line_edit = QLineEdit()
-        self.dn_line_edit = QLineEdit()
-        self.uln_line_edit = QLineEdit()
-        self.upn_line_edit = QLineEdit()
-
-        self.company_combobox = QComboBox()
-        self.dept_combobox = QComboBox()
-        self.job_title_combobox = QComboBox()
-        self.mngr_line_edit = QLineEdit()
-
-        self.psswd_line_edit = QLineEdit()
-        self.org_unit_combobox = QComboBox()
-        self.get_org_unit_btn = QPushButton()
