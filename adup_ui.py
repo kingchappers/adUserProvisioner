@@ -23,7 +23,6 @@ class AdupUI(QMainWindow):
         self._create_main_form()
         self._create_checkboxes()
         self._create_buttons()
-        #self._signal_listener()
         self.set_company_combobox()
         self.detect_combobox_change()
         self.detect_button_click()
@@ -104,7 +103,6 @@ class AdupUI(QMainWindow):
         """Set the company combobox values"""
         companies = self._controller.get_companies()
         self.company_combobox.addItems(companies)
-        #self.company_combobox.setCurrentIndex(-1)
 
     def set_department_combobox(self):
         """Set the department combobox values"""
@@ -112,7 +110,6 @@ class AdupUI(QMainWindow):
         self.dept_combobox.clear()
         departments = self._controller.get_next_combo_element(self.company_combobox.currentText(), 'company')
         self.dept_combobox.addItems(departments)
-        #self.dept_combobox.setCurrentIndex(-1)
 
     def set_job_combobox(self):
         """Set the Job combobox values"""
@@ -125,7 +122,6 @@ class AdupUI(QMainWindow):
         try:
             self.org_unit_combobox.addItems(self._controller.get_ou_structure())
         except Exception as e:
-            #e = sys.exc_info()
             print("Unable to query OU structure")
             print(e)
 
