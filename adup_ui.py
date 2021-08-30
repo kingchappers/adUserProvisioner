@@ -23,9 +23,10 @@ class AdupUI(QMainWindow):
         self._create_main_form()
         self._create_checkboxes()
         self._create_buttons()
+        self.detect_button_click()
+        self.detect_mandatory_fields()
         self.set_company_combobox()
         self.detect_combobox_change()
-        self.detect_button_click()
         self.set_ou_combobox()
 
     def _create_main_form(self):
@@ -129,6 +130,10 @@ class AdupUI(QMainWindow):
         """Detects when a button is pressed and sends to controller"""
         self.create_powershell_btn.clicked.connect(self.create_powershell_command)
         self.create_user_btn.clicked.connect(self.create_user)
+
+    def detect_mandatory_fields(self):
+        """Detects if the mandatory fields are filled, if not the create user button will be deactivated"""
+
 
     def create_powershell_command(self):
         """Create the user creation Powershell command"""        
