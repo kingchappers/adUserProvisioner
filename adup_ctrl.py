@@ -35,6 +35,11 @@ class AdupCtrl:
 
             return job_title_list
 
+    def usr_exist_check(self, pre2k_name, user_logon_name):
+        """Create a powershell command to check if the account already exists in AD"""
+        check_pre2k_name = f"Get-ADUser -Identity {pre2k_name}"
+        check_user_logon_name = f"get-aduser -Filter \"userPrincipalName -like '{user_logon_name}@*'\""
+
     def create_user_command(self, firstname, surname, displayname, pre2k_logon_name, user_logon_name, company, department, job_title, manager, org_unit, password, change_psswd, expire_psswd):
         """Create the command to create a new user in powershell"""
         create_usr_cmd = f"New-ADUser -Name '{displayname}' -GivenName '{firstname}' -Surname '{surname}' -SamAccountName '{pre2k_logon_name}' -UserPrincipalName '{user_logon_name}' -Company '{company}' -Department '{department}' -Title '{job_title}' -Path '{org_unit}' -AccountPassword (ConvertTo-SecureString -AsPlainText '{password}' -Force) -Enabled $true -ChangePasswordAtLogon {change_psswd} -PasswordNeverExpires {expire_psswd}"
