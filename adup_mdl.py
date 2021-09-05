@@ -20,9 +20,9 @@ class AdupMdl:
         return completed
 
     def query_ad_ou_structure(self):
-        """Get the AD structure, this is used to populate the OU dropdown""" 
+        """Get the AD structure, this is used to populate the OU dropdown"""
         get_ou_structure_command = "$OUs = Get-ADOrganizationalUnit -Filter * \n $OUs.DistinguishedName"
-        #Run the powershell command 
+        #Run the powershell command
         cmd_raw_output = subprocess.run(["powershell", "-Command", get_ou_structure_command], capture_output=True, check=True)
         #convert the powershell command result to a string
         cmd_output_as_string = cmd_raw_output.stdout.decode('utf-8').rstrip()
@@ -30,6 +30,12 @@ class AdupMdl:
         cmd_output_list = cmd_output_as_string.split("\r\n")
 
         return cmd_output_list
+
+    def run_powershell_command(self, command):
+        """run arbitrary commands in powershell and return results"""
+        result = subprocess.run(["powershell", "-Command", command], capture_output=True, check=True)
+
+        return result
 
     def create_user_in_powershell(self, create_user_command):
         """Run a powershell command"""
