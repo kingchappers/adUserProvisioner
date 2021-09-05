@@ -156,7 +156,7 @@ class AdupUI(QMainWindow):
 
     def check_duplicate_usr(self):
         """Checks if the filled in SAM name matches an existing user"""
-        response = self._controller.usr_exist_check(self.pre2k_line_edit.text())
+        response = self._controller.usr_exist_check(self.pre2k_line_edit.text(), self.uln_line_edit.text())
 
     def create_powershell_command(self):
         """Create the user creation Powershell command"""        
