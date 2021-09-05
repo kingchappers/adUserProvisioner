@@ -31,7 +31,7 @@ class AdupMdl:
 
         return cmd_output_list
 
-    def run_powershell_command(self, create_user_command):
+    def create_user_in_powershell(self, create_user_command):
         """Run a powershell command"""
         subprocess.run(["powershell", "-Command", create_user_command], capture_output=True, check=True)
 

@@ -39,6 +39,8 @@ class AdupCtrl:
         """Create a powershell command to check if the account already exists in AD"""
         check_pre2k_name = f"Get-ADUser -Identity {pre2k_name}"
         check_user_logon_name = f"get-aduser -Filter \"userPrincipalName -like '{user_logon_name}@*'\""
+        self._model.create_user_in_powershell(check_pre2k_name)
+        self._model.create_user_in_powershell(check_pre2k_name)
 
     def create_user_command(self, firstname, surname, displayname, pre2k_logon_name, user_logon_name, company, department, job_title, manager, org_unit, password, change_psswd, expire_psswd):
         """Create the command to create a new user in powershell"""
@@ -49,9 +51,12 @@ class AdupCtrl:
         return create_usr_cmd
 
     def create_user(self, command):
-        self._model.run_powershell_command(command)
+        self._model.create_user_in_powershell(command)
+        
 
     def get_ou_structure(self):
         """Get the OU structure"""
         ou_structure = self._model.query_ad_ou_structure()
         return ou_structure
+
+
