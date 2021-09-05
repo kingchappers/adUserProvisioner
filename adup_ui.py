@@ -146,6 +146,7 @@ class AdupUI(QMainWindow):
         """Detects when a button is pressed and sends to controller"""
         self.create_powershell_btn.clicked.connect(self.create_powershell_command)
         self.create_user_btn.clicked.connect(self.create_user)
+        self.check_duplicate_btn.clicked.connect(self.check_duplicate_usr)
 
     def check_mandatory_fields(self):
         """Detects if the mandatory fields are filled, if not the create user button will be deactivated"""
@@ -156,7 +157,12 @@ class AdupUI(QMainWindow):
 
     def check_duplicate_usr(self):
         """Checks if the filled in SAM name matches an existing user"""
-        response = self._controller.usr_exist_check(self.pre2k_line_edit.text(), self.uln_line_edit.text())
+        user_exists = self._controller.usr_exist_check(self.pre2k_line_edit.text(), self.uln_line_edit.text())
+
+        if user_exists == True:
+            self.check_duplicate_line_edit.setText("User already exists")
+        else:
+            self.check_duplicate_line_edit.setText("User does not exist")
 
     def create_powershell_command(self):
         """Create the user creation Powershell command"""        
