@@ -35,9 +35,9 @@ class AdupCtrl:
 
             return job_title_list
 
-    def create_user_command(self, firstname, surname, displayname, user_logon_name, user_principal_name, company, department, job_title, manager, org_unit, password, change_psswd, expire_psswd):
+    def create_user_command(self, firstname, surname, displayname, pre2k_logon_name, user_logon_name, company, department, job_title, manager, org_unit, password, change_psswd, expire_psswd):
         """Create the command to create a new user in powershell"""
-        create_usr_cmd = f"New-ADUser -Name '{displayname}' -GivenName '{firstname}' -Surname '{surname}' -SamAccountName '{user_logon_name}' -UserPrincipalName '{user_principal_name}' -Company '{company}' -Department '{department}' -Title '{job_title}' -Path '{org_unit}' -AccountPassword (ConvertTo-SecureString -AsPlainText '{password}' -Force) -Enabled $true -ChangePasswordAtLogon {change_psswd} -PasswordNeverExpires {expire_psswd}"
+        create_usr_cmd = f"New-ADUser -Name '{displayname}' -GivenName '{firstname}' -Surname '{surname}' -SamAccountName '{pre2k_logon_name}' -UserPrincipalName '{user_logon_name}' -Company '{company}' -Department '{department}' -Title '{job_title}' -Path '{org_unit}' -AccountPassword (ConvertTo-SecureString -AsPlainText '{password}' -Force) -Enabled $true -ChangePasswordAtLogon {change_psswd} -PasswordNeverExpires {expire_psswd}"
 
         #Manager must be an existing user so I need to create a search function for this user
 

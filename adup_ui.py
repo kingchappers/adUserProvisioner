@@ -36,8 +36,8 @@ class AdupUI(QMainWindow):
         self.fn_line_edit = QLineEdit()
         self.sn_line_edit = QLineEdit()
         self.dn_line_edit = QLineEdit()
+        self.pre2k_line_edit = QLineEdit()
         self.uln_line_edit = QLineEdit()
-        self.upn_line_edit = QLineEdit()
         self.company_combobox = QComboBox()
         self.dept_combobox = QComboBox()
         self.job_title_combobox = QComboBox()
@@ -52,8 +52,8 @@ class AdupUI(QMainWindow):
         self.main_form_layout.addRow(QLabel("First Name: *"), self.fn_line_edit)
         self.main_form_layout.addRow(QLabel("Surname: *"), self.sn_line_edit)
         self.main_form_layout.addRow(QLabel("Display Name: *"), self.dn_line_edit)
-        self.main_form_layout.addRow(QLabel("Pre 2k Logon Name: *"), self.uln_line_edit)
-        self.main_form_layout.addRow(QLabel("User Logon Name: *"), self.upn_line_edit)
+        self.main_form_layout.addRow(QLabel("Pre 2k Logon Name: *"), self.pre2k_line_edit)
+        self.main_form_layout.addRow(QLabel("User Logon Name: *"), self.uln_line_edit)
         self.main_form_layout.addRow(QLabel("Company: *"), self.company_combobox)
         self.main_form_layout.addRow(QLabel("Department: *"), self.dept_combobox)
         self.main_form_layout.addRow(QLabel("Job Title: *"), self.job_title_combobox)
@@ -133,8 +133,8 @@ class AdupUI(QMainWindow):
         self.fn_line_edit.textChanged.connect(self.check_mandatory_fields)
         self.sn_line_edit.textChanged.connect(self.check_mandatory_fields)
         self.dn_line_edit.textChanged.connect(self.check_mandatory_fields)
+        self.pre2k_line_edit.textChanged.connect(self.check_mandatory_fields)
         self.uln_line_edit.textChanged.connect(self.check_mandatory_fields)
-        self.upn_line_edit.textChanged.connect(self.check_mandatory_fields)
         self.company_combobox.currentIndexChanged.connect(self.check_mandatory_fields)
         self.dept_combobox.currentIndexChanged.connect(self.check_mandatory_fields)
         self.job_title_combobox.currentIndexChanged.connect(self.check_mandatory_fields)
@@ -149,18 +149,18 @@ class AdupUI(QMainWindow):
 
     def check_mandatory_fields(self):
         """Detects if the mandatory fields are filled, if not the create user button will be deactivated"""
-        if(self.fn_line_edit.text() != '' and self.sn_line_edit.text() and self.dn_line_edit.text() != '' and self.uln_line_edit.text() != '' and self.upn_line_edit.text() != '' and  self.company_combobox.currentText != '' and self.dept_combobox.currentText != '' and self.job_title_combobox.currentText != '' and self.mngr_line_edit.text() != '' and self.psswd_line_edit.text() != '' and self.org_unit_combobox.currentText != ''):
+        if(self.fn_line_edit.text() != '' and self.sn_line_edit.text() and self.dn_line_edit.text() != '' and self.pre2k_line_edit.text() != '' and self.uln_line_edit.text() != '' and  self.company_combobox.currentText != '' and self.dept_combobox.currentText != '' and self.job_title_combobox.currentText != '' and self.mngr_line_edit.text() != '' and self.psswd_line_edit.text() != '' and self.org_unit_combobox.currentText != ''):
             self.create_user_btn.setEnabled(True)
         else:
             self.create_user_btn.setEnabled(False)
 
     def check_duplicate_usr(self):
         """Checks if the filled in SAM name matches an existing user"""
-        response = self._controller.usr_exist_check(self.uln_line_edit.text())
+        response = self._controller.usr_exist_check(self.pre2k_line_edit.text())
 
     def create_powershell_command(self):
         """Create the user creation Powershell command"""        
-        command = self._controller.create_user_command(self.fn_line_edit.text(), self.sn_line_edit.text(), self.dn_line_edit.text(), self.uln_line_edit.text(), self.upn_line_edit.text(), self.company_combobox.currentText(), self.dept_combobox.currentText(), self.job_title_combobox.currentText(), self.mngr_line_edit.text(), self.org_unit_combobox.currentText(), self.psswd_line_edit.text(), self.change_psswd.checkState(), self.psswd_no_expire.checkState())
+        command = self._controller.create_user_command(self.fn_line_edit.text(), self.sn_line_edit.text(), self.dn_line_edit.text(), self.pre2k_line_edit.text(), self.uln_line_edit.text(), self.company_combobox.currentText(), self.dept_combobox.currentText(), self.job_title_combobox.currentText(), self.mngr_line_edit.text(), self.org_unit_combobox.currentText(), self.psswd_line_edit.text(), self.change_psswd.checkState(), self.psswd_no_expire.checkState())
         
         #Clear line edit before filling it 
         self.create_powershell_command_result_line_edit.clear()
@@ -168,7 +168,7 @@ class AdupUI(QMainWindow):
 
     def create_user(self):
         """Get create user command and create user"""
-        command = self._controller.create_user_command(self.fn_line_edit.text(), self.sn_line_edit.text(), self.dn_line_edit.text(), self.uln_line_edit.text(), self.upn_line_edit.text(), self.company_combobox.currentText(), self.dept_combobox.currentText(), self.job_title_combobox.currentText(), self.mngr_line_edit.text(), self.psswd_line_edit.text(), self.org_unit_combobox.currentText())
+        command = self._controller.create_user_command(self.fn_line_edit.text(), self.sn_line_edit.text(), self.dn_line_edit.text(), self.pre2k_line_edit.text(), self.uln_line_edit.text(), self.company_combobox.currentText(), self.dept_combobox.currentText(), self.job_title_combobox.currentText(), self.mngr_line_edit.text(), self.psswd_line_edit.text(), self.org_unit_combobox.currentText())
 
         try:
             self._controller.create_user(command)
