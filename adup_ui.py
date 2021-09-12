@@ -85,8 +85,7 @@ class AdupUI(QMainWindow):
         self.buttons_layout = QFormLayout()
         #Create the widgets
         self.check_duplicate_btn = QPushButton("Check for duplicates", self)
-        self.check_duplicate_line_edit = QLineEdit()
-        self.check_duplicate_line_edit.setReadOnly(True)
+        self.check_duplicate_lbl = QLabel("")
         self.create_powershell_btn = QPushButton("Create Powershell Cmd", self)
         self.create_powershell_command_result_line_edit = QLineEdit()
         self.create_powershell_command_result_line_edit.setReadOnly(True)
@@ -94,7 +93,7 @@ class AdupUI(QMainWindow):
         #button set to disabled until conditions are met
         self.create_user_btn.setEnabled(False)
         #Add buttons to form
-        self.buttons_layout.addRow(self.check_duplicate_btn, self.check_duplicate_line_edit)
+        self.buttons_layout.addRow(self.check_duplicate_btn, self.check_duplicate_lbl)
         self.buttons_layout.addRow(self.create_powershell_btn, self.create_powershell_command_result_line_edit)
         self.buttons_layout.addRow(self.create_user_btn)
         #Add to the main layout
@@ -165,9 +164,11 @@ class AdupUI(QMainWindow):
         user_exists = self._controller.usr_exist_check(self.uln_line_edit.text(), self.pre2k_line_edit.text())
 
         if user_exists == True:
-            self.check_duplicate_line_edit.setText("User already exists")
+            self.check_duplicate_lbl.setText("User exists")
+            self.check_duplicate_lbl.setStyleSheet("color: red;")
         else:
-            self.check_duplicate_line_edit.setText("User does not exist")
+            self.check_duplicate_lbl.setText("User does not exist")
+            self.check_duplicate_lbl.setStyleSheet("color: green;")
 
     def check_manager_exists(self):
         """Checks if the manager exists"""
