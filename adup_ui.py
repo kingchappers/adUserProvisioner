@@ -42,7 +42,7 @@ class AdupUI(QMainWindow):
         self.dept_combobox = QComboBox()
         self.job_title_combobox = QComboBox()
         self.mngr_line_edit = QLineEdit()
-        self.mngr_check_btn = QPushButton("Check Manager Logon Name", self)
+        self.mngr_check_btn = QPushButton("Check Manager Pre2k Name", self)
         self.emp_no_line_edit = QLineEdit()
         self.psswd_line_edit = QLineEdit()
         #Set the password to hidden
@@ -161,7 +161,7 @@ class AdupUI(QMainWindow):
 
     def check_duplicate_usr(self):
         """Checks if the filled in SAM name matches an existing user"""
-        user_exists = self._controller.usr_exist_check(self.uln_line_edit.text(), self.pre2k_line_edit.text())
+        user_exists = self._controller.usr_exist_check(self.pre2k_line_edit.text(), self.uln_line_edit.text())
 
         if user_exists == True:
             self.check_duplicate_lbl.setText("User exists")
@@ -172,7 +172,7 @@ class AdupUI(QMainWindow):
 
     def check_manager_exists(self):
         """Checks if the manager exists"""
-        user_exists = self._controller.usr_exist_check(self.mngr_line_edit.text(), self.uln_line_edit.text())
+        user_exists = self._controller.usr_exist_check(self.mngr_line_edit.text())
 
         if user_exists == True:
             self.mngr_exists_lbl.setText("Manager Exists")
@@ -193,7 +193,7 @@ class AdupUI(QMainWindow):
 
     def create_user(self):
         """Get create user command and create user"""
-        command = self._controller.create_user_command(self.fn_line_edit.text(), self.sn_line_edit.text(), self.dn_line_edit.text(), self.pre2k_line_edit.text(), self.uln_line_edit.text(), self.company_combobox.currentText(), self.dept_combobox.currentText(), self.job_title_combobox.currentText(), self.mngr_line_edit.text(), self.psswd_line_edit.text(), self.org_unit_combobox.currentText())
+        command = self._controller.create_user_command(self.fn_line_edit.text(), self.sn_line_edit.text(), self.dn_line_edit.text(), self.pre2k_line_edit.text(), self.uln_line_edit.text(), self.company_combobox.currentText(), self.dept_combobox.currentText(), self.job_title_combobox.currentText(), self.mngr_line_edit.text(), self.org_unit_combobox.currentText(), self.psswd_line_edit.text(), self.change_psswd.checkState(), self.psswd_no_expire.checkState())
 
         try:
             self._controller.create_user(command)
