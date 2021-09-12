@@ -35,18 +35,19 @@ class AdupCtrl:
 
             return job_title_list
 
-    def usr_exist_check(self, pre2k_name, user_logon_name):
+    def usr_exist_check(self, user_logon_name, pre2k_name="none"):
         """Create a powershell command to check if the account already exists in AD"""
         check_pre2k_name = f"Get-ADUser -Identity {pre2k_name}"
         check_user_logon_name = f"get-aduser -Filter \"userPrincipalName -like '{user_logon_name}@*'\""
         
-        try:
-            pre2k_check = self._model.run_powershell_command(check_pre2k_name)
-            pre2k_exists = True
-        except Exception as e:
-            print("User does not exist")
-            print(e)
-            pre2k_exists = False
+        if pre2k_name != "none":
+            try:
+                pre2k_check = self._model.run_powershell_command(check_pre2k_name)
+                pre2k_exists = True
+            except Exception as e:
+                print("User does not exist")
+                print(e)
+                pre2k_exists = False
 
         user_logon_name_check = self._model.run_powershell_command(check_user_logon_name)
         user_logon_name_check_as_string = user_logon_name_check.stdout.decode('utf-8').rstrip()
