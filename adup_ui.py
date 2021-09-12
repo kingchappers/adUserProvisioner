@@ -59,7 +59,8 @@ class AdupUI(QMainWindow):
         self.main_form_layout.addRow(QLabel("Department: *"), self.dept_combobox)
         self.main_form_layout.addRow(QLabel("Job Title: *"), self.job_title_combobox)
         self.main_form_layout.addRow(QLabel("Manager: *"), self.mngr_line_edit)
-        self.main_form_layout.addRow(self.mngr_check_btn, QLabel(""))
+        self.mngr_exists_lbl = QLabel("")
+        self.main_form_layout.addRow(self.mngr_check_btn, self.mngr_exists_lbl)
         self.main_form_layout.addRow(QLabel("Employee Number:"), self.emp_no_line_edit)
         self.main_form_layout.addRow(QLabel("Password: *"), self.psswd_line_edit)
         self.main_form_layout.addRow(QLabel("Organisational Unit:"), self.org_unit_combobox)
@@ -171,6 +172,14 @@ class AdupUI(QMainWindow):
     def check_manager_exists(self):
         """Checks if the manager exists"""
         user_exists = self._controller.usr_exist_check(self.mngr_line_edit.text(), self.uln_line_edit.text())
+
+        if user_exists == True:
+            self.mngr_exists_lbl.setText("Manager Exists")
+            self.mngr_exists_lbl.setStyleSheet("color: green;")
+        else:
+            self.mngr_exists_lbl.setText("Manager Does Not Exist")
+            self.mngr_exists_lbl.setStyleSheet("color: red;")
+
 
 
     def create_powershell_command(self):
