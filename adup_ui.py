@@ -172,7 +172,11 @@ class AdupUI(QMainWindow):
 
     def check_manager_exists(self):
         """Checks if the manager exists"""
-        user_exists = self._controller.usr_exist_check(self.mngr_line_edit.text())
+        
+        try:
+            user_exists = self._controller.usr_exist_check(self.mngr_line_edit.text())
+        except Exception as e:
+            print(e)
 
         if user_exists == True:
             self.mngr_exists_lbl.setText("Manager Exists")

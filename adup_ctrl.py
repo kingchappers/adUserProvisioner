@@ -57,6 +57,8 @@ class AdupCtrl:
                 user_logon_name_exists = False
             else:
                 user_logon_name_exists = True
+        else:
+            user_logon_name_exists = False
 
         if user_logon_name_exists == True or pre2k_exists == True:
             user_exists = True
