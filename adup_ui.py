@@ -42,6 +42,7 @@ class AdupUI(QMainWindow):
         self.dept_combobox = QComboBox()
         self.job_title_combobox = QComboBox()
         self.mngr_line_edit = QLineEdit()
+        self.mngr_check_btn = QPushButton("Check Manager Logon Name", self)
         self.emp_no_line_edit = QLineEdit()
         self.psswd_line_edit = QLineEdit()
         #Set the password to hidden
@@ -58,6 +59,7 @@ class AdupUI(QMainWindow):
         self.main_form_layout.addRow(QLabel("Department: *"), self.dept_combobox)
         self.main_form_layout.addRow(QLabel("Job Title: *"), self.job_title_combobox)
         self.main_form_layout.addRow(QLabel("Manager: *"), self.mngr_line_edit)
+        self.main_form_layout.addRow(self.mngr_check_btn, QLabel(""))
         self.main_form_layout.addRow(QLabel("Employee Number:"), self.emp_no_line_edit)
         self.main_form_layout.addRow(QLabel("Password: *"), self.psswd_line_edit)
         self.main_form_layout.addRow(QLabel("Organisational Unit:"), self.org_unit_combobox)
@@ -122,6 +124,7 @@ class AdupUI(QMainWindow):
         self.job_title_combobox.addItems(jobs)
 
     def set_ou_combobox(self):
+        """Set the OU combobox values"""
         try:
             self.org_unit_combobox.addItems(self._controller.get_ou_structure())
         except Exception as e:
@@ -147,6 +150,7 @@ class AdupUI(QMainWindow):
         self.create_powershell_btn.clicked.connect(self.create_powershell_command)
         self.create_user_btn.clicked.connect(self.create_user)
         self.check_duplicate_btn.clicked.connect(self.check_duplicate_usr)
+        self.mngr_check_btn.clicked.connect(self.check_manager_exists)
 
     def check_mandatory_fields(self):
         """Detects if the mandatory fields are filled, if not the create user button will be deactivated"""
@@ -157,12 +161,17 @@ class AdupUI(QMainWindow):
 
     def check_duplicate_usr(self):
         """Checks if the filled in SAM name matches an existing user"""
-        user_exists = self._controller.usr_exist_check(self.pre2k_line_edit.text(), self.uln_line_edit.text())
+        user_exists = self._controller.usr_exist_check(self.uln_line_edit.text(), self.pre2k_line_edit.text())
 
         if user_exists == True:
             self.check_duplicate_line_edit.setText("User already exists")
         else:
             self.check_duplicate_line_edit.setText("User does not exist")
+
+    def check_manager_exists(self):
+        """Checks if the manager exists"""
+        user_exists = self._controller.usr_exist_check(self.mngr_line_edit.text(), self.uln_line_edit.text())
+
 
     def create_powershell_command(self):
         """Create the user creation Powershell command"""        
