@@ -64,7 +64,7 @@ class AdupCtrl:
         else:
             user_exists = False
 
-        return user_logon_name_exists
+        return user_exists
 
     def create_user_command(self, firstname, surname, displayname, pre2k_logon_name, user_logon_name, company, department, job_title, manager, org_unit, password, change_psswd, expire_psswd):
         """Create the command to create a new user in powershell"""
