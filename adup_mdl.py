@@ -3,6 +3,7 @@
 
 import json
 import subprocess
+from subprocess import PIPE
 
 class AdupMdl:
     """ADUP Model Class"""
@@ -16,14 +17,14 @@ class AdupMdl:
 
     def run_usr_creation_powershell_command(self, cmd):
         """Run a Powershell Command using subprocess"""
-        completed = subprocess.run(["powershell", "-Command", cmd], capture_output=True, check=True)
+        completed = subprocess.run(["powershell", "-Command", cmd], stdout=PIPE, stderr=PIPE, check=True)
         return completed
 
     def query_ad_ou_structure(self):
         """Get the AD structure, this is used to populate the OU dropdown"""
         get_ou_structure_command = "$OUs = Get-ADOrganizationalUnit -Filter * \n $OUs.DistinguishedName"
         #Run the powershell command
-        cmd_raw_output = subprocess.run(["powershell", "-Command", get_ou_structure_command], capture_output=True, check=True)
+        cmd_raw_output = subprocess.run(["powershell", "-Command", get_ou_structure_command], stdout=PIPE, stderr=PIPE, check=True)
         #convert the powershell command result to a string
         cmd_output_as_string = cmd_raw_output.stdout.decode('utf-8').rstrip()
         #convert the powershell command result to a list split by the \r\n characters
@@ -33,13 +34,13 @@ class AdupMdl:
 
     def run_powershell_command(self, command):
         """run arbitrary commands in powershell and return results"""
-        result = subprocess.run(["powershell", "-Command", command], capture_output=True, check=True)
+        result = subprocess.run(["powershell", "-Command", command], stdout=PIPE, stderr=PIPE, check=True)
 
         return result
 
     def create_user_in_powershell(self, create_user_command):
         """Run a powershell command"""
-        subprocess.run(["powershell", "-Command", create_user_command], capture_output=True, check=True)
+        subprocess.run(["powershell", "-Command", create_user_command], stdout=PIPE, stderr=PIPE, check=True)
 
     def query_usr_manager(self, manager_name):
         """Query AD to see if the entered manager exists"""
